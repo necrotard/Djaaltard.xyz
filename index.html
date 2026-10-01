@@ -1,32 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>djaaltard.xyz</title>
-<meta name="description" content="Djaaltard — Diablo 4 on PS5, live on Twitch and YouTube.">
-<style>
-  :root{color-scheme:dark}
-  *{box-sizing:border-box;margin:0}
-  body{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,#2a0a12 0%,#0b0b0f 60%);color:#e9e6e1;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;padding:2rem}
-  h1{font-size:clamp(2.5rem,8vw,5rem);letter-spacing:.04em;color:#d4a94a;text-shadow:0 0 24px rgba(212,169,74,.35)}
-  p{margin-top:1rem;font-size:1.15rem;color:#b9b3aa}
-  .links{margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-  a{color:#0b0b0f;background:#d4a94a;padding:.7rem 1.3rem;border-radius:999px;text-decoration:none;font-weight:600}
-  a.ghost{background:transparent;color:#d4a94a;border:1px solid #d4a94a}
-  footer{margin-top:3rem;font-size:.85rem;color:#6f6a63}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Djaaltard / NekroTard: live Diablo 4 streams with Djaal</title>
+<meta name="description" content="Diablo 4 on PS5, live on Twitch and YouTube.">
+<meta name="theme-color" content="#0b0507">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<!-- Open Graph / X card (absolute URLs are filled in by deploy.sh) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Djaaltard">
+<meta property="og:title" content="Djaaltard: live Diablo 4 with Djaal 😈">
+<meta property="og:description" content="Diablo 4 on PS5, live on Twitch and YouTube.">
+<meta property="og:url" content="https://djaaltard.xyz/">
+<meta property="og:image" content="https://djaaltard.xyz/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Djaaltard banner: Djaal, the pink devil with horns, rainbow shades and green Grinch hands">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Djaaltard: live Diablo 4 with Djaal 😈">
+<meta name="twitter:description" content="Diablo 4 on PS5, live on Twitch and YouTube.">
+<meta name="twitter:image" content="https://djaaltard.xyz/assets/og-card.jpg">
+<meta name="twitter:image:alt" content="Djaaltard banner with Djaal">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <h1>djaaltard.xyz</h1>
-  <p>Diablo 4 on PS5 with Djaal. Live on Twitch and YouTube.</p>
-  <div class="links">
-    <a href="https://www.twitch.tv/nekrotard">Twitch</a>
-    <a href="https://www.youtube.com/@Djaaltard">YouTube</a>
-    <a class="ghost" href="https://github.com/necrotard/Djaaltard.xyz">GitHub repo</a>
-  </div>
-  <footer>&copy; 2026 Djaaltard</footer>
+<div class="embers" aria-hidden="true"></div>
+<main class="wrap">
+
+  <header class="banner-frame">
+    <img class="banner" src="assets/banner.jpg" srcset="assets/banner-600.jpg 600w, assets/banner.jpg 1200w" sizes="(max-width: 1240px) 100vw, 1200px"
+         width="1200" height="480" alt="DJAALTARD banner: Djaal, the pink devil with horns, rainbow shades and green Grinch hands">
+  </header>
+
+
+  <!-- Djaal roams in his own strip, so he never covers the stream boxes -->
+  <section class="djaal-strip" aria-label="Djaal, the mascot, wandering around (tap him)">
+    <div class="intro">
+      <h1><span class="plain">Djaal</span> <span class="gold">Necrotard</span></h1>
+    </div>
+    <iframe id="djaal" src="djaal/roam.html" title="Djaal the mascot roaming (tap him for a random pose)" loading="eager" scrolling="no" allowtransparency="true"></iframe>
+    <div class="floor" aria-hidden="true"></div>
+  </section>
+
+  <!-- TEMP X BROADCAST: start (delete everything from here to "TEMP X BROADCAST: end" to remove; nothing else depends on it) -->
+  <style>
+    .xlive { margin: 0 0 22px; }
+    .xlive .dot { background: #fff; box-shadow: 0 0 10px rgba(255,255,255,.8); }
+    .xlive .x-badge { font: 800 11px/1 Inter, sans-serif; letter-spacing: .08em; color: #fff; background: var(--blood-hi); padding: 5px 8px; border-radius: 6px; box-shadow: 0 0 12px rgba(224,38,47,.6); }
+    .xlive .head-btn { text-decoration: none; }
+    .xlive .box { max-width: 960px; margin: 0 auto; }
+    .xlive .x-poster { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      text-decoration: none; color: var(--bone); background: radial-gradient(circle at 50% 40%, rgba(163,18,28,.45), #000 70%); }
+    .xlive .x-poster strong { font-family: Cinzel, serif; font-size: clamp(22px, 4vw, 40px); color: var(--gold-hi); }
+    .xlive .x-poster span { color: var(--muted); font-size: 14px; }
+    .xlive .under { display: block; text-align: center; }
+  </style>
+  <section class="streams-x" aria-label="Live on X">
+    <article class="stream xlive">
+      <div class="card-head">
+        <h2><span class="dot"></span>Live on 𝕏 <span class="x-badge">LIVE</span></h2>
+        <a class="head-btn" href="https://x.com/i/broadcasts/1qxvvepEVdRxB" target="_blank" rel="noopener">Watch on 𝕏 ↗</a>
+      </div>
+      <div class="box">
+        <!-- poster card sits underneath the player: visible if the X embed fails to load -->
+        <a class="x-poster" href="https://x.com/i/broadcasts/1qxvvepEVdRxB" target="_blank" rel="noopener"><span class="x-badge">● LIVE ON 𝕏</span><strong>Watch the broadcast</strong><span>Click to open on x.com (new tab)</span></a>
+        <!-- X's own broadcast embed endpoint (the iframe widgets.js creates for blockquote.twitter-broadcast); starts muted, use X's controls to unmute -->
+        <div class="player"><iframe src="https://studio.x.com/embed/broadcast/1qxvvepEVdRxB?lang=en" title="Live broadcast on X" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="eager"></iframe></div>
+      </div>
+      <a class="under" href="https://x.com/i/broadcasts/1qxvvepEVdRxB" target="_blank" rel="noopener">x.com/i/broadcasts/1qxvvepEVdRxB ↗</a>
+    </article>
+  </section>
+  <!-- TEMP X BROADCAST: end -->
+
+  <section class="streams" aria-label="Live streams">
+    <article class="stream twitch">
+      <div class="card-head">
+        <h2><span class="dot"></span>Twitch <small>/ nekrotard</small></h2>
+        <!-- outside the video on purpose: Twitch pauses / won't autoplay a player that has anything on top of it -->
+        <button class="mute head-btn" id="twitch-mute" type="button" data-muted="true" aria-pressed="false" aria-label="Unmute Twitch stream">🔇 Unmute</button>
+      </div>
+      <div class="box" id="twitch-box">
+        <div class="player" id="twitch-player"></div>
+        <div class="offline" hidden><strong>Offline right now</strong><span>Click to open twitch.tv/nekrotard &amp; follow for the next Diablo 4 push</span></div>
+        <a class="hit" href="https://www.twitch.tv/nekrotard" target="_blank" rel="noopener" aria-label="Open nekrotard on Twitch (new tab)"></a>
+      </div>
+      <a class="under" href="https://www.twitch.tv/nekrotard" target="_blank" rel="noopener">twitch.tv/nekrotard ↗</a>
+    </article>
+
+    <article class="stream youtube">
+      <div class="card-head"><h2><span class="dot"></span>YouTube <small>/ @Djaaltard</small></h2></div>
+      <div class="box armed" id="yt-box">
+        <div class="player"><iframe id="yt-player" title="Djaaltard live on YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="offline" hidden><strong>Not live on YouTube right now</strong><span>Click to open youtube.com/@Djaaltard/live</span></div>
+        <a class="hit" href="https://www.youtube.com/@Djaaltard/live" target="_blank" rel="noopener" aria-label="Open Djaaltard live on YouTube (new tab)"></a>
+        <button class="mute" type="button" data-muted="true" aria-pressed="false" aria-label="Unmute YouTube stream">🔇 Unmute</button>
+      </div>
+      <a class="under" href="https://www.youtube.com/@Djaaltard/live" target="_blank" rel="noopener">youtube.com/@Djaaltard/live ↗</a>
+    </article>
+  </section>
+
+  <section class="share" aria-label="Share on X">
+    <h2>Share the streams on X</h2>
+    <p class="hint">X can't autoplay embedded players, so share these links: they open the live streams directly.</p>
+    <div class="share-rows">
+      <div class="share-row" data-text="NekroTard is LIVE on Twitch: Diablo 4 on PS5 😈🔥 #Diablo4" data-url="https://www.twitch.tv/nekrotard">
+        <span class="label">Twitch live</span>
+        <input type="text" readonly value="https://www.twitch.tv/nekrotard" aria-label="Twitch live link">
+        <button class="copy" type="button">Copy</button><a class="post" target="_blank" rel="noopener">Post on 𝕏</a>
+      </div>
+      <div class="share-row" data-text="Djaaltard is LIVE on YouTube: Diablo 4 on PS5 😈🔥 #Diablo4" data-url="https://www.youtube.com/@Djaaltard/live">
+        <span class="label">YouTube live</span>
+        <input type="text" readonly value="https://www.youtube.com/@Djaaltard/live" aria-label="YouTube live link">
+        <button class="copy" type="button">Copy</button><a class="post" target="_blank" rel="noopener">Post on 𝕏</a>
+      </div>
+      <div class="share-row" data-text="Djaaltard live on YouTube: Diablo 4 on PS5 😈 #Diablo4" data-url="https://www.youtube.com/channel/UCCJoOpH4PKfXGpbhxYMNTtQ/live">
+        <span class="label">YouTube (channel ID)</span>
+        <input type="text" readonly value="https://www.youtube.com/channel/UCCJoOpH4PKfXGpbhxYMNTtQ/live" aria-label="YouTube live link by channel ID">
+        <button class="copy" type="button">Copy</button><a class="post" target="_blank" rel="noopener">Post on 𝕏</a>
+      </div>
+      <div class="share-row" data-text="Both Djaaltard streams (Twitch + YouTube) in one place: Diablo 4 on PS5 😈" data-url="https://djaaltard.xyz/">
+        <span class="label">This page</span>
+        <input type="text" readonly value="https://djaaltard.xyz/" aria-label="Link to this page">
+        <button class="copy" type="button">Copy</button><a class="post" target="_blank" rel="noopener">Post on 𝕏</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Djaal is the pink devil with the horns, rainbow shades and green Grinch hands. Tap him up there. He also reacts to <a href="https://www.twitch.tv/nekrotard" target="_blank" rel="noopener">#nekrotard</a> chat.</p>
+  </footer>
 </main>
+<script src="app.js"></script>
 </body>
 </html>

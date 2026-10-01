@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Djaal roaming</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <div id="bubble-wrap"><div id="bubble" class="bubble"><span class="who"></span><span class="msg"></span></div></div>
+    <div id="mascot"></div>
+    <canvas id="fx"></canvas>
+  </div>
+  <div id="status"></div>
+  <script>
+    // roam along the floor of this strip; sprite ~55% of the strip height, the rest is room for his speech bubble
+    window.JOLL_ROAM = 'floor';
+    window.JOLL_SCALE = Math.max(0.22, Math.min(0.6, (window.innerHeight * (window.innerWidth < 600 ? 0.48 : 0.56)) / 440));
+    window.JOLL_BSCALE = window.innerWidth < 600 ? 0.55 : 0.64;
+  </script>
+  <script src="overlay.js"></script>
+</body>
+</html>
