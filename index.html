@@ -53,35 +53,6 @@
     <div class="floor" aria-hidden="true"></div>
   </section>
 
-  <!-- TEMP X BROADCAST: start (delete everything from here to "TEMP X BROADCAST: end" to remove; nothing else depends on it) -->
-  <style>
-    .xlive { margin: 0 0 22px; }
-    .xlive .dot { background: #fff; box-shadow: 0 0 10px rgba(255,255,255,.8); }
-    .xlive .x-badge { font: 800 11px/1 Inter, sans-serif; letter-spacing: .08em; color: #fff; background: var(--blood-hi); padding: 5px 8px; border-radius: 6px; box-shadow: 0 0 12px rgba(224,38,47,.6); }
-    .xlive .head-btn { text-decoration: none; }
-    .xlive .box { max-width: 960px; margin: 0 auto; }
-    .xlive .x-poster { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-      text-decoration: none; color: var(--bone); background: radial-gradient(circle at 50% 40%, rgba(163,18,28,.45), #000 70%); }
-    .xlive .x-poster strong { font-family: Cinzel, serif; font-size: clamp(22px, 4vw, 40px); color: var(--gold-hi); }
-    .xlive .x-poster span { color: var(--muted); font-size: 14px; }
-    .xlive .under { display: block; text-align: center; }
-  </style>
-  <section class="streams-x" aria-label="Live on X">
-    <article class="stream xlive">
-      <div class="card-head">
-        <h2><span class="dot"></span>Live on 𝕏 <span class="x-badge">LIVE</span></h2>
-        <a class="head-btn" href="https://x.com/i/broadcasts/1qxvvepEVdRxB" target="_blank" rel="noopener">Watch on 𝕏 ↗</a>
-      </div>
-      <div class="box">
-        <!-- poster card sits underneath the player: visible if the X embed fails to load -->
-        <a class="x-poster" href="https://x.com/i/broadcasts/1qxvvepEVdRxB" target="_blank" rel="noopener"><span class="x-badge">● LIVE ON 𝕏</span><strong>Watch the broadcast</strong><span>Click to open on x.com (new tab)</span></a>
-        <!-- X's own broadcast embed endpoint (the iframe widgets.js creates for blockquote.twitter-broadcast); starts muted, use X's controls to unmute -->
-        <div class="player"><iframe src="https://studio.x.com/embed/broadcast/1qxvvepEVdRxB?lang=en" title="Live broadcast on X" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="eager"></iframe></div>
-      </div>
-      <a class="under" href="https://x.com/i/broadcasts/1qxvvepEVdRxB" target="_blank" rel="noopener">x.com/i/broadcasts/1qxvvepEVdRxB ↗</a>
-    </article>
-  </section>
-  <!-- TEMP X BROADCAST: end -->
 
   <section class="streams" aria-label="Live streams">
     <article class="stream twitch">
