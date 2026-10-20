@@ -1,0 +1,32 @@
+/* Crypto tip card (Reown AppKit). Every rule is scoped to .tc so nothing leaks into the rest of the site. */
+.tc{display:flex;justify-content:center;margin:6px auto 22px;padding:0 4px}
+.tc *{box-sizing:border-box}
+.tc .tc-card{width:min(100%,600px);padding:22px 26px;border-radius:var(--radius,14px);text-align:center;color:var(--bone,#eadfcb);background:linear-gradient(135deg,#3a070c,var(--blood,#a3121c) 55%,#5a0a10);border:1px solid var(--gold,#c9a45c);box-shadow:inset 0 0 0 1px #0009,0 0 18px #e0262f73,0 0 42px #ff7a1a2e;display:flex;flex-direction:column;gap:12px;animation:tc-pulse 2.8s ease-in-out infinite}
+@keyframes tc-pulse{50%{box-shadow:inset 0 0 0 1px #0009,0 0 28px #e0262fb3,0 0 56px #ff7a1a4d}}
+.tc .tc-tag{letter-spacing:.22em;text-transform:uppercase;color:var(--ember,#ff7a1a);font-size:.72rem;font-weight:700}
+.tc .tc-ens{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--gold-hi,#f1d596);text-shadow:0 0 10px #e0262fbf;font-size:clamp(1.6rem,6vw,2.25rem);font-weight:700;overflow-wrap:anywhere}
+.tc .tc-btn{cursor:pointer;color:#1a0a06;background:linear-gradient(135deg,var(--gold-hi,#f1d596),var(--gold,#c9a45c));border:1px solid var(--gold-hi,#f1d596);border-radius:999px;padding:9px 16px;font:700 14px Inter,system-ui,sans-serif;text-decoration:none;display:inline-block;transition:transform .15s,box-shadow .15s}
+.tc .tc-btn:hover,.tc .tc-btn:focus-visible{transform:translateY(-1px);box-shadow:0 0 18px #f1d59699,0 0 30px #e0262f73;outline:none}
+.tc .tc-big{padding:12px 28px;font-size:17px}
+.tc .tc-ghost{color:var(--gold-hi,#f1d596);background:0 0;border-color:#c9a45c99}
+.tc .tc-sm{padding:4px 12px;font-size:12px;flex:none}
+.tc .tc-ok{background:linear-gradient(135deg,#b6f08a,var(--grinch,#7ccf3a))}
+.tc .tc-sec{background:#00000059;border:1px solid #c9a45c40;border-radius:12px;padding:12px 14px}
+.tc .tc-left{text-align:left}
+.tc .tc-sec h3{letter-spacing:.2em;text-transform:uppercase;color:var(--ember,#ff7a1a);margin:0 0 8px;font:700 12px Inter,system-ui,sans-serif}
+.tc #tc-send{display:none}
+.tc .tc-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px}
+.tc input{width:110px;color:var(--gold-hi,#f1d596);background:#0b0507;border:1px solid #c9a45c80;border-radius:10px;padding:8px 10px;font:600 15px Inter,system-ui,sans-serif}
+.tc .tc-qrs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tc .tc-qr{text-align:center;color:var(--muted,#a8988a);font-size:12px}
+.tc .tc-qr>div{background:#f1e6cf;border-radius:10px;padding:8px;line-height:0;display:inline-block}
+.tc .tc-qr svg{width:150px;height:150px;max-width:100%}
+.tc .tc-addr{display:flex;align-items:center;gap:8px;margin-top:6px;padding:6px 8px;border-radius:10px;background:#00000059}
+.tc .tc-addr b{min-width:58px;color:var(--ember,#ff7a1a);font-size:12px}
+.tc .tc-addr code{flex:1;min-width:0;color:var(--gold-hi,#f1d596);overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;user-select:all}
+.tc .tc-st{color:var(--muted,#a8988a);min-height:1em;font-size:13px;margin-top:6px}
+.tc .tc-err,.tc .tc-warn{color:#ff8a8a;font-size:13px}
+.tc .tc-good{color:var(--grinch,#7ccf3a)}
+.tc .tc-small{margin:0;color:var(--muted,#a8988a);font-size:12px}
+@media (max-width:480px){.tc .tc-qr svg{width:120px;height:120px}.tc .tc-card{padding:18px 14px}}
+@media (prefers-reduced-motion:reduce){.tc .tc-card{animation:none}.tc .tc-btn{transition:none}}

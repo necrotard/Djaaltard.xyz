@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/tip/tip.css">
 </head>
 <body>
 <div class="embers" aria-hidden="true"></div>
@@ -51,32 +52,6 @@
       <span class="bb-sub">Open the Maxroll Planner &#8599;</span>
     </a>
   </section>
-
-  <!-- crypto tips via ENS + backup addresses -->
-  <section class="tip-cta" aria-label="Tip in crypto">
-    <span class="bb-tag">Support the Channel</span>
-    <h2 class="tip-title">Tip in Crypto</h2>
-    <div class="tip-row">
-      <code class="tip-ens">necrotard.eth</code>
-      <button class="tip-copy" type="button" data-copy="necrotard.eth" aria-label="Copy necrotard.eth">Copy</button>
-    </div>
-    <p class="tip-note">Send ETH or tokens on Ethereum to necrotard.eth from any ENS-compatible wallet.</p>
-    <div class="tip-backup">
-      <span class="tip-blabel">Backup addresses</span>
-      <div class="tip-addr"><span class="tip-chain">Solana</span><code>Baz1UdQn3vPC3RaVPmFPwfHBh4zcW4Q1u4BjW4iaAdM2</code><button class="tip-copy sm" type="button" data-copy="Baz1UdQn3vPC3RaVPmFPwfHBh4zcW4Q1u4BjW4iaAdM2" aria-label="Copy Solana address">Copy</button></div>
-      <div class="tip-addr"><span class="tip-chain">ETH</span><code>0x04F3528634f82cC44956b8D350F04710CAE4A816</code><button class="tip-copy sm" type="button" data-copy="0x04F3528634f82cC44956b8D350F04710CAE4A816" aria-label="Copy ETH address">Copy</button></div>
-    </div>
-    <a class="tip-link" href="https://app.ens.domains/necrotard.eth" target="_blank" rel="noopener">View / verify on ENS &#8599;</a>
-    <span class="tip-status" role="status" aria-live="polite"></span>
-  </section>
-  <script>
-  (function(){var st=document.querySelector('.tip-status');
-  document.querySelectorAll('.tip-copy').forEach(function(b){var t;
-  function done(){b.textContent='Copied!';b.classList.add('ok');st.textContent='Copied to clipboard';clearTimeout(t);t=setTimeout(function(){b.textContent='Copy';b.classList.remove('ok');st.textContent='';},1800);}
-  function fb(v){var a=document.createElement('textarea');a.value=v;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(a);done();}
-  b.addEventListener('click',function(){var v=b.getAttribute('data-copy');if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(v).then(done,function(){fb(v);});}else fb(v);});});})();
-  </script>
-
 
   <!-- Djaal roams in his own strip, so he never covers the stream boxes -->
   <section class="djaal-strip" aria-label="Djaal, the mascot, wandering around (tap him)">
@@ -113,6 +88,26 @@
       </div>
       <a class="under" href="https://www.youtube.com/@Djaaltard/live" target="_blank" rel="noopener">youtube.com/@Djaaltard/live ↗</a>
     </article>
+  </section>
+
+  <!-- crypto tips: Reown AppKit wallet modal (ETH / SOL) + QR & copy fallbacks; styles scoped to .tc in tip/tip.css -->
+  <section class="tc" aria-label="Tip in crypto">
+    <div class="tc-card">
+      <span class="tc-tag">Support the Stream</span>
+      <div class="tc-ens">necrotard.eth</div>
+      <div><button class="tc-btn tc-big" id="tc-tip" type="button">Tip in Crypto</button></div>
+      <div class="tc-warn" id="tc-cfg" hidden>Wallet modal unavailable; QR / copy below still work.</div>
+      <div class="tc-sec" id="tc-send"><h3 id="tc-sendH">Send tip</h3>
+        <div class="tc-row"><input id="tc-amt" type="number" min="0" step="0.001" aria-label="Tip amount"> <span id="tc-unit">ETH</span><button class="tc-btn" id="tc-go" type="button">Send to necrotard.eth</button><button class="tc-btn tc-ghost tc-sm" id="tc-acct" type="button">Wallet</button></div>
+        <div class="tc-st" id="tc-st" role="status" aria-live="polite"></div></div>
+      <div class="tc-sec"><h3>Scan with your phone</h3><div class="tc-qrs">
+        <div class="tc-qr"><div id="tc-qrE"></div><br>ETH &middot; mainnet (0.01)</div><div class="tc-qr"><div id="tc-qrS"></div><br>Solana Pay (0.1 SOL)</div></div></div>
+      <div class="tc-sec tc-left"><h3>Or copy an address</h3>
+        <div class="tc-addr"><b>ENS</b><code>necrotard.eth</code><button class="tc-btn tc-sm tc-cp" type="button" data-k="ENS">Copy</button></div>
+        <div class="tc-addr"><b>SOLANA</b><code id="tc-sA">Baz1UdQn3vPC3RaVPmFPwfHBh4zcW4Q1u4BjW4iaAdM2</code><button class="tc-btn tc-sm tc-cp" type="button" data-k="SOL">Copy</button></div>
+        <div class="tc-addr"><b>ETH</b><code id="tc-eA">0x04F3528634f82cC44956b8D350F04710CAE4A816</code><button class="tc-btn tc-sm tc-cp" type="button" data-k="ETH">Copy</button></div></div>
+      <p class="tc-small">Double-check the address in your wallet before confirming. Tips are non-refundable.</p>
+    </div>
   </section>
 
   <section class="discord-cta" aria-label="Join the Discord">
@@ -156,5 +151,6 @@
   </footer>
 </main>
 <script src="app.js"></script>
+<script type="module" crossorigin src="/tip/assets/site-DUhrdYDs.js"></script>
 </body>
 </html>
