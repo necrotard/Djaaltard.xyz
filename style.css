@@ -137,3 +137,22 @@ footer .foot-links a:hover { text-decoration: underline; }
   .share-row { grid-template-columns: 1fr auto auto; }
   .share-row .label { grid-column: 1 / -1; margin-bottom: -4px; }
 }
+
+/* featured build button (Maxroll planner) */
+.build-cta { display: flex; justify-content: center; margin: 18px 0 8px; }
+.build-btn {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  width: min(100%, 560px); padding: 18px 28px; border-radius: var(--radius); text-align: center; text-decoration: none;
+  color: var(--bone); background: linear-gradient(135deg, #3a070c 0%, var(--blood) 55%, #5a0a10 100%);
+  border: 1px solid var(--gold); box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 18px rgba(224,38,47,.45), 0 0 42px rgba(255,122,26,.18);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; overflow: hidden;
+  animation: bb-pulse 2.8s ease-in-out infinite;
+}
+.build-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(241,213,150,.28) 50%, transparent 70%); transform: translateX(-120%); transition: transform .6s ease; }
+.build-btn:hover::after, .build-btn:focus-visible::after { transform: translateX(120%); }
+.build-btn:hover, .build-btn:focus-visible { transform: translateY(-2px) scale(1.015); border-color: var(--gold-hi); box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 26px rgba(224,38,47,.75), 0 0 60px rgba(255,122,26,.35); outline: none; }
+.bb-tag { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ember); font-weight: 700; }
+.bb-title { font-size: clamp(1.15rem, 3.6vw, 1.6rem); font-weight: 800; color: var(--gold-hi); text-shadow: 0 0 10px rgba(224,38,47,.8), 0 2px 0 #000; }
+.bb-sub { font-size: .92rem; color: var(--bone); opacity: .9; }
+@keyframes bb-pulse { 0%,100% { box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 18px rgba(224,38,47,.45), 0 0 42px rgba(255,122,26,.18); } 50% { box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 28px rgba(224,38,47,.7), 0 0 56px rgba(255,122,26,.3); } }
+@media (prefers-reduced-motion: reduce) { .build-btn { animation: none; } .build-btn::after { display: none; } }
