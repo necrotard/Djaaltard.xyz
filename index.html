@@ -52,6 +52,31 @@
     </a>
   </section>
 
+  <!-- crypto tips via ENS + backup addresses -->
+  <section class="tip-cta" aria-label="Tip in crypto">
+    <span class="bb-tag">Support the Channel</span>
+    <h2 class="tip-title">Tip in Crypto</h2>
+    <div class="tip-row">
+      <code class="tip-ens">necrotard.eth</code>
+      <button class="tip-copy" type="button" data-copy="necrotard.eth" aria-label="Copy necrotard.eth">Copy</button>
+    </div>
+    <p class="tip-note">Send ETH or tokens on Ethereum to necrotard.eth from any ENS-compatible wallet.</p>
+    <div class="tip-backup">
+      <span class="tip-blabel">Backup addresses</span>
+      <div class="tip-addr"><span class="tip-chain">Solana</span><code>Baz1UdQn3vPC3RaVPmFPwfHBh4zcW4Q1u4BjW4iaAdM2</code><button class="tip-copy sm" type="button" data-copy="Baz1UdQn3vPC3RaVPmFPwfHBh4zcW4Q1u4BjW4iaAdM2" aria-label="Copy Solana address">Copy</button></div>
+      <div class="tip-addr"><span class="tip-chain">ETH</span><code>0x04F3528634f82cC44956b8D350F04710CAE4A816</code><button class="tip-copy sm" type="button" data-copy="0x04F3528634f82cC44956b8D350F04710CAE4A816" aria-label="Copy ETH address">Copy</button></div>
+    </div>
+    <a class="tip-link" href="https://app.ens.domains/necrotard.eth" target="_blank" rel="noopener">View / verify on ENS &#8599;</a>
+    <span class="tip-status" role="status" aria-live="polite"></span>
+  </section>
+  <script>
+  (function(){var st=document.querySelector('.tip-status');
+  document.querySelectorAll('.tip-copy').forEach(function(b){var t;
+  function done(){b.textContent='Copied!';b.classList.add('ok');st.textContent='Copied to clipboard';clearTimeout(t);t=setTimeout(function(){b.textContent='Copy';b.classList.remove('ok');st.textContent='';},1800);}
+  function fb(v){var a=document.createElement('textarea');a.value=v;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(a);done();}
+  b.addEventListener('click',function(){var v=b.getAttribute('data-copy');if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(v).then(done,function(){fb(v);});}else fb(v);});});})();
+  </script>
+
 
   <!-- Djaal roams in his own strip, so he never covers the stream boxes -->
   <section class="djaal-strip" aria-label="Djaal, the mascot, wandering around (tap him)">

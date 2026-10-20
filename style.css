@@ -156,3 +156,23 @@ footer .foot-links a:hover { text-decoration: underline; }
 .bb-sub { font-size: .92rem; color: var(--bone); opacity: .9; }
 @keyframes bb-pulse { 0%,100% { box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 18px rgba(224,38,47,.45), 0 0 42px rgba(255,122,26,.18); } 50% { box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 28px rgba(224,38,47,.7), 0 0 56px rgba(255,122,26,.3); } }
 @media (prefers-reduced-motion: reduce) { .build-btn { animation: none; } .build-btn::after { display: none; } }
+
+/* crypto tip card (ENS + backup addresses) */
+.tip-cta { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; width: min(100%, 560px); margin: 6px auto 18px; padding: 18px 22px; border-radius: var(--radius); background: linear-gradient(160deg, var(--panel2) 0%, #2a070b 100%); border: 1px solid rgba(201,164,92,.6); box-shadow: 0 0 0 1px rgba(0,0,0,.6) inset, 0 0 16px rgba(224,38,47,.3); }
+.tip-title { margin: 0; font-size: clamp(1.05rem, 3.2vw, 1.35rem); color: var(--bone); }
+.tip-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; }
+.tip-ens { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: clamp(1.3rem, 5vw, 1.9rem); font-weight: 700; color: var(--gold-hi); padding: 6px 14px; border-radius: 10px; background: rgba(0,0,0,.45); border: 1px solid rgba(201,164,92,.45); text-shadow: 0 0 10px rgba(224,38,47,.75); user-select: all; }
+.tip-copy { font: inherit; font-weight: 700; cursor: pointer; padding: 9px 18px; border-radius: 999px; color: #1a0a06; background: linear-gradient(135deg, var(--gold-hi), var(--gold)); border: 1px solid var(--gold-hi); box-shadow: 0 0 12px rgba(241,213,150,.35); transition: transform .15s ease, box-shadow .15s ease; }
+.tip-copy.sm { padding: 5px 12px; font-size: .8rem; flex: none; }
+.tip-copy:hover, .tip-copy:focus-visible { transform: translateY(-1px); box-shadow: 0 0 20px rgba(241,213,150,.6), 0 0 34px rgba(224,38,47,.45); outline: none; }
+.tip-copy.ok { background: linear-gradient(135deg, #b6f08a, var(--grinch)); border-color: #b6f08a; }
+.tip-note { margin: 0; font-size: .9rem; color: var(--muted); max-width: 44ch; }
+.tip-backup { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding-top: 10px; border-top: 1px solid rgba(201,164,92,.25); }
+.tip-blabel { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.tip-addr { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; background: rgba(0,0,0,.35); text-align: left; }
+.tip-chain { flex: none; min-width: 52px; font-size: .75rem; font-weight: 700; color: var(--ember); text-transform: uppercase; }
+.tip-addr code { flex: 1; min-width: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .8rem; color: var(--gold-hi); overflow-wrap: anywhere; user-select: all; }
+.tip-link { font-size: .85rem; color: var(--gold); text-decoration: none; border-bottom: 1px dashed rgba(201,164,92,.5); }
+.tip-link:hover, .tip-link:focus-visible { color: var(--gold-hi); }
+.tip-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (prefers-reduced-motion: reduce) { .tip-copy { transition: none; } .tip-copy:hover { transform: none; } }
